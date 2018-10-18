@@ -1,2 +1,3 @@
 # mobileComputing
-Mobile Computing Stuff halt
+
+[Outliner](https://github.com/DanielHipp/mobileComputing/wiki/Outliner)
