@@ -20,10 +20,21 @@ def draw_img(display, np_array):
 	display.write_display()
 	return
 
-def draw_periodic(display,full_array,times=200):
+def add_padding(data):
+	padding = np.zeros((data.shape[0],16), dtype=int)
+	return np.concatenate((data, padding), axis=1)
+
+
+def draw_periodic(display,full_array, times=1, padding=False):
 	if display is None:
 		return
 	max = full_array.shape[1]
+	if padding:
+		full_array=add_padding(full_array)
+		max += (times-1)*16
+	times = times*max + 1	#1=zum schluss wieder an erster Stelle (x[0])
+	if padding:
+		times -= 16 #zum schluss nurnoch das Padding (leeres Array) anzeigen
 	array = np.zeros((8,16))
 	for i in range(times):
 		for k in range(16):
@@ -67,7 +78,9 @@ full_sine = np.array([[0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 			[0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,1,0,0],
 			[0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0]])
 
-#draw_periodic(display, full_sine)
+draw_periodic(display, full_sine, times=2, padding=True)
+#draw_periodic(display, full_sine, times=1)
+
 topBotIcon = np.array([[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
 					 [1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1],
 					 [0,0,1,0,0,1,1,0,0,1,1,1,0,0,1,1],
@@ -86,7 +99,6 @@ topBotIcon = np.array([[0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1],
 					 [0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1]])
 
 
-matrix16x16simulation(topBotIcon,display,None)
-a = input("now it will change to Bot:")
-matrix16x16simulation(topBotIcon,None,display)
-
+#matrix16x16simulation(topBotIcon,display,None)
+#a = input("now it will change to Bot:")
+#matrix16x16simulation(topBotIcon,None,display)
