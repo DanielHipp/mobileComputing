@@ -21,11 +21,13 @@ class StringHandler:
                 if x is None:
                     raise Exception("Illegal Argument! String starts with 'I' but can`t be casted as Image!")
             if self.matrix is None:
-                return x
+                print("Image:\n",x)
+                return
             self.matrix.draw_Image(x)
         elif(inpt[0] == self.stringChar):
             if self.matrix is None:
-                return inpt[1:]
+                print("String:\n",inpt[1:])
+                return
             self.matrix.write_string(inpt[1:])
         elif not ignoreErrors:
             raise Exception("Illegal Argument! String has to start with {} or {}".format(self.imgChar,self.stringChar))
