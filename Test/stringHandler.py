@@ -28,7 +28,7 @@ class StringHandler:
             if self.matrix is None:
                 print("String:\n",inpt[1:])
                 return
-            self.matrix.write_string(inpt[1:])
+            self.matrix.write_string(self.uncode_String(inpt[1:]))
         elif not ignoreErrors:
             raise Exception("Illegal Argument! String has to start with {} or {}".format(self.imgChar,self.stringChar))
         return
@@ -44,9 +44,13 @@ class StringHandler:
             return None
         return array.reshape(self.shape)
 
+    def uncode_String(self,string):
+        return string.replace("%20"," ").upper()
+
 if __name__ == '__main__':
     sh = StringHandler(imgChar="I",stringChar="S", imgSize=16*16, matrix16x16=None)
-    testString = "a"*16*16
-    print(sh.handleString("S"+testString))
-    testImg = "01"*16*8
-    print(sh.handleString("I"+testImg))
+    #testString = "a"*16*16
+    #print(sh.handleString("S"+testString))
+    #testImg = "01"*16*8
+    #print(sh.handleString("I"+testImg))
+    sh.uncode_String("Hallo%20=)%20Ich%20%20binKUHL")
