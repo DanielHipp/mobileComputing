@@ -16,9 +16,6 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        Connector connector = new Connector();
-        connector.sendVolleyMessage("Hi", this);
-
         //Button OnClick Listeners >>>>
         Button buttonText = findViewById(R.id.start_button_text);
         buttonText.setOnClickListener(new View.OnClickListener() {

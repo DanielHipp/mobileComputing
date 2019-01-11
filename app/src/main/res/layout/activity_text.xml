@@ -10,12 +10,14 @@
         android:gravity="center">
 
         <EditText
+            android:id="@+id/activityText_textToSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minWidth="100dp"
             android:hint="Add Text"/>
 
         <Button
+            android:id="@+id/activityText_buttonToSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minWidth="100dp"

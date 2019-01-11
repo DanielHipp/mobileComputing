@@ -10,12 +10,14 @@
         android:gravity="center">
 
         <Button
+            android:id="@+id/activityPicture_findImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minWidth="100dp"
             android:text="Search Image"/>
 
         <Button
+            android:id="@+id/activityPicture_buttonToSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minWidth="100dp"

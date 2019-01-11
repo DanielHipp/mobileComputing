@@ -31,6 +31,8 @@ public class NotificationListener extends NotificationListenerService {
         int iconSmall = extras.getInt(Notification.EXTRA_SMALL_ICON);
         Icon icon = sbn.getNotification().getLargeIcon();
 
+        //ToDo: Send Image
+
         Log.i("Package", pack);
         Log.i("Ticker", ticker);
         Log.i("Title", title);
