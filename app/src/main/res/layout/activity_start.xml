@@ -10,28 +10,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/colorPrimary">
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
-            android:text="Robert" />
+            android:text="Robert"
+            android:textColor="@color/colorWhite"/>
 
         <Button
             android:id="@+id/start_button_text"
+            android:minWidth="120dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
-            android:text="Send Text" />
+            android:text="Send Text"
+            android:background="@drawable/button"/>
 
         <Button
             android:id="@+id/start_button_image"
+            android:minWidth="120dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
-            android:text="Send Image" />
+            android:text="Send Image"
+            android:background="@drawable/button"/>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -22,6 +22,8 @@ public class PictureActivity extends AppCompatActivity {
     private String image = "I";
     private ImageCompressor compr;
     private Connector connector;
+    private boolean isButtonClicked = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,11 @@ public class PictureActivity extends AppCompatActivity {
         buttonToGallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (v.getId() == R.id.activityPicture_findImage) {
+                    isButtonClicked = !isButtonClicked; 
+                    v.setBackgroundResource(isButtonClicked ? R.drawable.button_active : R.drawable.button);
+                }
+
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);

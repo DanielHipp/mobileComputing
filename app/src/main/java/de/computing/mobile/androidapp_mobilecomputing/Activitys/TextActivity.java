@@ -12,6 +12,7 @@ import de.computing.mobile.androidapp_mobilecomputing.R;
 
 public class TextActivity extends AppCompatActivity {
     private String text = "S";
+    private boolean isFieldPressed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,17 @@ public class TextActivity extends AppCompatActivity {
                 EditText textToSend = findViewById(R.id.activityText_textToSend);
                 text += textToSend.getText().toString();
                 connector.sendVolleyMessage(text, TextActivity.this);
+            }
+        });
+
+        EditText editText = findViewById(R.id.activityText_textToSend);
+        editText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (v.getId() == R.id.activityText_textToSend) {
+                    isFieldPressed = !isFieldPressed;
+                    v.setBackgroundResource(isFieldPressed ? R.drawable.text_active : R.drawable.text);
+                }
             }
         });
 
