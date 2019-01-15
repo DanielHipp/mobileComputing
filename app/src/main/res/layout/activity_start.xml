@@ -13,13 +13,11 @@
         android:orientation="vertical"
         android:background="@color/colorPrimary">
 
-        <TextView
-            android:id="@+id/textView"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="30dp"
-            android:text="Robert"
-            android:textColor="@color/colorWhite"/>
+            android:background="@drawable/header"/>
 
         <Button
             android:id="@+id/start_button_text"
@@ -38,6 +36,17 @@
             android:layout_margin="30dp"
             android:text="Send Image"
             android:background="@drawable/button"/>
+
+        <Switch
+            android:id="@+id/start_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:checked="true"
+            android:textOff="Off"
+            android:textOn="On"
+            android:text="Notifications"
+            android:textColor="@color/colorWhite"/>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

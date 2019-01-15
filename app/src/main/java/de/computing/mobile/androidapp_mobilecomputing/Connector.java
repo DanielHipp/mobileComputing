@@ -20,7 +20,7 @@ public class Connector {
     public void sendVolleyMessage(String message, Context context){
         //Instantiate
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url = "http://192.168.10.1:8000/S" + message;
+        String url = "http://192.168.10.1:8000/" + message;
 
         //Request a string response from URL
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
