@@ -7,22 +7,33 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:background="@drawable/header"/>
 
         <Button
             android:id="@+id/activityPicture_findImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="100dp"
-            android:text="Search Image"/>
+            android:minWidth="120dp"
+            android:layout_margin="30dp"
+            android:text="Search Image"
+            android:background="@drawable/button"/>
 
         <Button
             android:id="@+id/activityPicture_buttonToSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="100dp"
+            android:minWidth="120dp"
             android:layout_marginTop="10dp"
-            android:text="Send"/>
+            android:layout_margin="30dp"
+            android:text="Send"
+            android:background="@drawable/button"/>
 
     </LinearLayout>
 

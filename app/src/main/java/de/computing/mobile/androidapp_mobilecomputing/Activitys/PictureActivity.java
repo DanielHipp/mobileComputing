@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -22,6 +21,8 @@ public class PictureActivity extends AppCompatActivity {
     private String image = "I";
     private ImageCompressor compr;
     private Connector connector;
+    private boolean isButtonClicked = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,11 @@ public class PictureActivity extends AppCompatActivity {
         buttonToGallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (v.getId() == R.id.activityPicture_findImage) {
+                    isButtonClicked = !isButtonClicked;
+                    v.setBackgroundResource(isButtonClicked ? R.drawable.button_active : R.drawable.button);
+                }
+
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -60,9 +66,7 @@ public class PictureActivity extends AppCompatActivity {
                 if (data != null) {
                     try {
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
-                        String s = compr.changeToImageString(bitmap);
-                        connector.sendVolleyMessage(s,PictureActivity.this);
-                        Log.d("Gallery", "opended");
+                        image += compr.changeToImageString(bitmap);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

@@ -12,14 +12,20 @@ import android.service.notification.StatusBarNotification;
 import de.computing.mobile.androidapp_mobilecomputing.Connector;
 import de.computing.mobile.androidapp_mobilecomputing.ImageController.ImageCompressor;
 
+import static de.computing.mobile.androidapp_mobilecomputing.Activitys.StartActivity.notificationOn;
+
 public class NotificationListener extends NotificationListenerService {
 
     private Context context;
     private ImageCompressor compr;
     private Connector conn;
+    private StatusBarNotification sbn_old = null;
+
+    private boolean connected = false;
 
     @Override
     public void onCreate() {
+        Log.d("Notifications", "onCreate");
         super.onCreate();
         context = getApplicationContext();
         compr = new ImageCompressor();
@@ -27,13 +33,25 @@ public class NotificationListener extends NotificationListenerService {
     }
 
     @Override
+    public void onListenerConnected(){
+        connected = true;
+        Log.d("Notifiation","connected");
+    }
+
+    @Override
     public void onNotificationPosted(StatusBarNotification sbn){
-        Icon icon = sbn.getNotification().getLargeIcon();
+        if(connected) {
+            if(notificationOn) {
+                sbn_old = sbn;
+                Log.d("Notification", sbn.getPackageName());
+                Icon icon = sbn.getNotification().getSmallIcon();
 
-        Bitmap bitmap = drawableToBitmap(icon.loadDrawable(context));
-        String send = compr.changeToImageString(bitmap);
+                Bitmap bitmap = drawableToBitmap(icon.loadDrawable(context));
+                String send = compr.changeToImageString(bitmap);
 
-        conn.sendVolleyMessage(send, context);
+                conn.sendVolleyMessage("I" + send, context);
+            }
+        }
     }
 
     private static Bitmap drawableToBitmap (Drawable drawable) {
