@@ -1,17 +1,13 @@
 package de.computing.mobile.androidapp_mobilecomputing.Notifications;
 
-import android.app.Notification;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
-import android.os.Bundle;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
-import android.util.Log;
 
 import de.computing.mobile.androidapp_mobilecomputing.Connector;
 import de.computing.mobile.androidapp_mobilecomputing.ImageController.ImageCompressor;
@@ -40,7 +36,7 @@ public class NotificationListener extends NotificationListenerService {
         conn.sendVolleyMessage(send, context);
     }
 
-    public static Bitmap drawableToBitmap (Drawable drawable) {
+    private static Bitmap drawableToBitmap (Drawable drawable) {
         Bitmap bitmap = null;
 
         if (drawable instanceof BitmapDrawable) {

@@ -1,6 +1,10 @@
 package de.computing.mobile.androidapp_mobilecomputing;
 
+import android.graphics.Bitmap;
+
 import org.junit.Test;
+
+import de.computing.mobile.androidapp_mobilecomputing.ImageController.ImageCompressor;
 
 import static org.junit.Assert.*;
 
@@ -10,8 +14,14 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
+
+
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void testifString(){
+        ImageCompressor compressor = new ImageCompressor();
+
+        Bitmap bitmapTest = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
+
+        assertNotNull(compressor.changeToImageString(bitmapTest));
     }
 }
