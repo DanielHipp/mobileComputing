@@ -25,7 +25,6 @@ public class NotificationListener extends NotificationListenerService {
 
     @Override
     public void onCreate() {
-        Log.d("Notifications", "onCreate");
         super.onCreate();
         context = getApplicationContext();
         compr = new ImageCompressor();
@@ -35,7 +34,6 @@ public class NotificationListener extends NotificationListenerService {
     @Override
     public void onListenerConnected(){
         connected = true;
-        Log.d("Notifiation","connected");
     }
 
     @Override
@@ -43,7 +41,6 @@ public class NotificationListener extends NotificationListenerService {
         if(connected) {
             if(notificationOn) {
                 sbn_old = sbn;
-                Log.d("Notification", sbn.getPackageName());
                 Icon icon = sbn.getNotification().getSmallIcon();
 
                 Bitmap bitmap = drawableToBitmap(icon.loadDrawable(context));
